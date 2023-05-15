@@ -8,12 +8,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: the_db
-      MYSQL_USER: root
+      MYSQL_USER: mysql
       MYSQL_PASSWORD: mysql
     ports:
       - 3306:3306
     volumes:
       - db_data:/var/lib/mysql
+    platform: linux/amd64
 
   # phpmyadmin
   phpmyadmin:
