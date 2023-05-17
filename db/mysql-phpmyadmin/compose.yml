@@ -4,7 +4,6 @@ services:
   db:
     image: mysql:8
     restart: always
-    container_name: friend_mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: the_db
@@ -19,7 +18,6 @@ services:
   # phpmyadmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:4.9
-    container_name: friend_php_my_admin
     restart: always
     links:
       - db

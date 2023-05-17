@@ -11,6 +11,6 @@ docker compose \
 # info
 
 * db name : the_db
-* pass: mysql
+* password: mysql
 * user: mysql
 * root password: root
