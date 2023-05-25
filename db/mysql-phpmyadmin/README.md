@@ -23,3 +23,9 @@ docker compose --file db_compose.yml up -d
 * url: '127.0.0.1:8010'
 * username: mysql
 * password: mysql
+
+## root user login
+
+* url: '127.0.0.1:8010'
+* username: root
+* password: root
