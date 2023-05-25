@@ -10,11 +10,11 @@ services:
       MYSQL_DATABASE: the_db
       MYSQL_USER: mysql
       MYSQL_PASSWORD: mysql
+    command: --port=3336
     ports:
-      - 3306:3306
+      - 3336:3336
     volumes:
       - db_data_friend:/var/lib/mysql
-    platform: linux/amd64
 
   # phpmyadmin
   phpmyadmin:
@@ -28,6 +28,7 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: mysql
+      PMA_PORT: 3336
 
 volumes:
   db_data_friend:
