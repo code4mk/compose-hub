@@ -1,3 +1,17 @@
+# Installation
+* install via script
+
+```bash
+curl -o start_db.sh -LJO https://raw.githubusercontent.com/code4mk/compose-hub/main/db/mysql-phpmyadmin/start_db.sh
+
+chmod +x start_db.sh
+
+./start_db.sh
+```
+
+
+* manual install
+
 ```bash
 # download
 curl -o db_compose.yml -LJO https://raw.githubusercontent.com/code4mk/compose-hub/main/db/mysql-phpmyadmin/compose.yml
@@ -6,26 +20,26 @@ curl -o db_compose.yml -LJO https://raw.githubusercontent.com/code4mk/compose-hu
 docker compose --file db_compose.yml up -d
 ```
 
-# info
+# Database Information
 
 ## mysql
 * host : 127.0.0.1
 * port: 3336
 * db name : the_db
-* password: mysql
 * username: mysql
-
----
+* password: mysql
 * root password: root
 
 # phpmyadmin
 
-* url: '127.0.0.1:8010'
-* username: mysql
+## db specific login
+
+* url: 127.0.0.1:8010
 * password: mysql
+* username: mysql
 
 ## root user login
 
-* url: '127.0.0.1:8010'
-* username: root
+* url: 127.0.0.1:8010
 * password: root
+* username: root
