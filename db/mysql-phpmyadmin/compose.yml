@@ -2,7 +2,7 @@ version: '3'
 services:
   # mysql
   db:
-    image: mysql:8
+    image: mysql:{MYSQL_VESRION:-8}
     restart: always
     container_name: friend_mysql
     environment:
@@ -10,25 +10,27 @@ services:
       MYSQL_DATABASE: the_db
       MYSQL_USER: mysql
       MYSQL_PASSWORD: mysql
-    command: --port=3336
+    command: --port={MYSQL_PORT:-3336}
     ports:
-      - 3336:3336
+      - "${MYSQL_PORT:-3336} : ${MYSQL_PORT:-3336}"
     volumes:
       - db_data_friend:/var/lib/mysql
 
   # phpmyadmin
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:4.9
+    image: phpmyadmin/phpmyadmin:{PHP_MYADMIN_VERSION:-4.9}
     container_name: friend_php_my_admin
     restart: always
     links:
       - db
     ports:
-      - 8010:80
+      - ${PHP_MYADMIN_PORT:-8010}:80
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: mysql
-      PMA_PORT: 3336
+      PMA_PORT: ${MYSQL_PORT:-3336}
+    depends_on:
+      - db
 
 volumes:
   db_data_friend:
